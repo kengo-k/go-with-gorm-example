@@ -33,4 +33,23 @@ func main() {
 	db.AutoMigrate(&model.Item{})
 	db.AutoMigrate(&model.OrderItem{})
 
+	items := []*model.Item{
+		{
+			Price: 980,
+			Name:  "item 1",
+		},
+		{
+			Price: 2980,
+			Name:  "item 2",
+		},
+		{
+			Price: 98,
+			Name:  "item 3",
+		},
+	}
+
+	for _, item := range items {
+		db.Save(item)
+	}
+
 }
