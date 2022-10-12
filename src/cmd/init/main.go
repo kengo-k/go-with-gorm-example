@@ -8,7 +8,7 @@ import (
 	"sample-go-with-gorm.com/src/model"
 )
 
-// create initial database and execute migrate
+// initial database, migrate and insert test data
 func main() {
 	dbName := "test.db"
 
@@ -31,4 +31,6 @@ func main() {
 	db.AutoMigrate(&model.Order{})
 	db.AutoMigrate(&model.Customer{})
 	db.AutoMigrate(&model.Item{})
+	db.AutoMigrate(&model.OrderItem{})
+
 }

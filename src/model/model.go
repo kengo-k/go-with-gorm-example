@@ -7,8 +7,17 @@ import (
 type Order struct {
 	gorm.Model
 	Items      []Item `gorm:"foreignKey:ID"`
-	CustomerId int
+	CustomerID int
 	Customer   Customer
+}
+
+type OrderItem struct {
+	gorm.Model
+	OrderID   int
+	Order     Order
+	ItemID    int
+	Item      Item
+	ItemCount int
 }
 
 type Item struct {
