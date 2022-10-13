@@ -1,32 +1,33 @@
 package model
 
-import (
-	"gorm.io/gorm"
-)
-
-type Order struct {
-	gorm.Model
-	OrderItems []OrderItem `gorm:"foreignKey:OrderID"`
-	CustomerID uint
-	Customer   Customer `gorm:"foreignKey:ID"`
-}
-
-type OrderItem struct {
-	gorm.Model
-	OrderID   uint
-	Item      Item `gorm:"foreignKey:ID"`
-	ItemID    uint
-	ItemCount int
-}
-
+// 100
 type Item struct {
-	gorm.Model
+	ID    uint
 	Price int
 	Name  string
 }
 
+// 200-
 type Customer struct {
-	gorm.Model
+	ID      uint
 	Name    string
 	Address string
+}
+
+// 300-
+type Order struct {
+	ID         uint
+	OrderItems []OrderItem `gorm:"foreignKey:OrderID"`
+	CustomerID uint
+	Customer   Customer `gorm:"foreignKey:CustomerID"`
+}
+
+// 400
+type OrderItem struct {
+	ID        uint
+	Order     Order
+	OrderID   uint
+	Item      Item `gorm:"foreignKey:ItemID"`
+	ItemID    uint
+	ItemCount int
 }
