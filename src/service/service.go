@@ -12,3 +12,13 @@ func (s *Service) SelectAllItems(db *gorm.DB) []model.Item {
 	db.Find(&items)
 	return items
 }
+
+func (s *Service) SelectAllOrders(db *gorm.DB) []model.Order {
+	orders := []model.Order{}
+	db.
+		Preload("Customer").
+		Preload("OrderItems").
+		Preload("Item").
+		Find(&orders)
+	return orders
+}
