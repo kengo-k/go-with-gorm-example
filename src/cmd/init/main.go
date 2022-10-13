@@ -28,10 +28,7 @@ func main() {
 	}
 
 	// execute migrate
-	db.AutoMigrate(&model.Order{})
-	db.AutoMigrate(&model.Customer{})
-	db.AutoMigrate(&model.Item{})
-	db.AutoMigrate(&model.OrderItem{})
+	db.AutoMigrate(&model.OrderItem{}, &model.Order{}, &model.Customer{}, &model.Item{})
 
 	items := []*model.Item{
 		{
