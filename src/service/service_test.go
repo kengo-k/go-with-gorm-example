@@ -22,3 +22,18 @@ func TestSelectAllItems(t *testing.T) {
 		t.Errorf("Test Find User: %v", err)
 	}
 }
+
+func TestSelectAllOrders(t *testing.T) {
+	mockDB, mock := mockdb.New()
+
+	mock.ExpectQuery(regexp.QuoteMeta(
+		`SELECT * FROM "orders" WHERE "orders"."deleted_at" IS NULL`)).
+		WillReturnRows(sqlmock.NewRows([]string{}))
+
+	service := &Service{}
+	service.SelectAllOrders(mockDB)
+
+	if err := mock.ExpectationsWereMet(); err != nil {
+		t.Errorf("Test Find User: %v", err)
+	}
+}
