@@ -36,14 +36,17 @@ func main() {
 func initData(db *gorm.DB) {
 
 	item1 := model.Item{
+		ID:    100,
 		Price: 980,
 		Name:  "item 1",
 	}
 	item2 := model.Item{
+		ID:    101,
 		Price: 2980,
 		Name:  "item 2",
 	}
 	item3 := model.Item{
+		ID:    102,
 		Price: 2980,
 		Name:  "item 2",
 	}
@@ -56,10 +59,12 @@ func initData(db *gorm.DB) {
 	}
 
 	cust1 := model.Customer{
+		ID:      200,
 		Name:    "name 1",
 		Address: "address 1",
 	}
 	cust2 := model.Customer{
+		ID:      201,
 		Name:    "name 2",
 		Address: "address 2",
 	}
@@ -71,9 +76,9 @@ func initData(db *gorm.DB) {
 		db.Save(&cust)
 	}
 
-	order1 := model.Order{CustomerID: cust1.ID}
-	order2 := model.Order{CustomerID: cust1.ID}
-	order3 := model.Order{CustomerID: cust2.ID}
+	order1 := model.Order{ID: 300, CustomerID: cust1.ID}
+	order2 := model.Order{ID: 301, CustomerID: cust1.ID}
+	order3 := model.Order{ID: 302, CustomerID: cust2.ID}
 	orders := []*model.Order{
 		&order1, &order2, &order3,
 	}
@@ -82,11 +87,11 @@ func initData(db *gorm.DB) {
 	}
 
 	orderItems := []*model.OrderItem{
-		{OrderID: order1.ID, ItemID: item1.ID, ItemCount: 5},
-		{OrderID: order1.ID, ItemID: item2.ID, ItemCount: 2},
-		{OrderID: order2.ID, ItemID: item1.ID, ItemCount: 2},
-		{OrderID: order2.ID, ItemID: item3.ID, ItemCount: 1},
-		{OrderID: order3.ID, ItemID: item2.ID, ItemCount: 3},
+		{ID: 400, OrderID: order1.ID, ItemID: item1.ID, ItemCount: 5},
+		{ID: 401, OrderID: order1.ID, ItemID: item2.ID, ItemCount: 2},
+		{ID: 402, OrderID: order2.ID, ItemID: item1.ID, ItemCount: 2},
+		{ID: 403, OrderID: order2.ID, ItemID: item3.ID, ItemCount: 1},
+		{ID: 404, OrderID: order3.ID, ItemID: item2.ID, ItemCount: 3},
 	}
 
 	for _, oi := range orderItems {
