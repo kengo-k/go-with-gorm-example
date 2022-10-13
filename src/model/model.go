@@ -6,17 +6,16 @@ import (
 
 type Order struct {
 	gorm.Model
-	Items      []Item `gorm:"foreignKey:ID"`
+	OrderItems []OrderItem `gorm:"foreignKey:OrderID"`
 	CustomerID int
-	Customer   Customer
+	Customer   Customer `gorm:"foreignKey:ID"`
 }
 
 type OrderItem struct {
 	gorm.Model
 	OrderID   int
-	Order     Order
+	Item      Item `gorm:"foreignKey:ID"`
 	ItemID    int
-	Item      Item
 	ItemCount int
 }
 
