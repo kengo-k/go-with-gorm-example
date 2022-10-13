@@ -2,6 +2,7 @@ package service
 
 import (
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 	"sample-go-with-gorm.com/src/model"
 )
 
@@ -16,9 +17,17 @@ func (s *Service) SelectAllItems(db *gorm.DB) []model.Item {
 func (s *Service) SelectAllOrders(db *gorm.DB) []model.Order {
 	orders := []model.Order{}
 	db.
-		Preload("Customer").
-		Preload("OrderItems").
-		Preload("Item").
+		Preload(clause.Associations).
 		Find(&orders)
+
 	return orders
+}
+
+func (s *Service) SelectAllOrderItems(db *gorm.DB) []model.OrderItem {
+	orderItems := []model.OrderItem{}
+	db.
+		Preload(clause.Associations).
+		Find(&orderItems)
+
+	return orderItems
 }
