@@ -5,11 +5,11 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"sample-go-with-gorm.com/src/mockdb"
+	"sample-go-with-gorm.com/src/db"
 )
 
 func TestSelectAllItems(t *testing.T) {
-	mockDB, mock := mockdb.New()
+	mockDB, mock := db.NewMockDB()
 
 	mock.ExpectQuery(regexp.QuoteMeta(
 		`SELECT * FROM "items" WHERE "items"."deleted_at" IS NULL`)).
@@ -24,7 +24,7 @@ func TestSelectAllItems(t *testing.T) {
 }
 
 func TestSelectAllOrders(t *testing.T) {
-	mockDB, mock := mockdb.New()
+	mockDB, mock := db.NewMockDB()
 
 	mock.ExpectQuery(regexp.QuoteMeta(
 		`SELECT * FROM "orders" WHERE "orders"."deleted_at" IS NULL`)).

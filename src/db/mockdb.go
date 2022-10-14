@@ -1,4 +1,4 @@
-package mockdb
+package db
 
 import (
 	"github.com/DATA-DOG/go-sqlmock"
@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func New() (*gorm.DB, sqlmock.Sqlmock) {
+func NewMockDB() (*gorm.DB, sqlmock.Sqlmock) {
 	conn, mock, err := sqlmock.New()
 	if err != nil {
 		panic("failed to create sqlmock.New()")
