@@ -7,7 +7,7 @@ import (
 	"gorm.io/gorm"
 )
 
-func NewDB(dbName string) *gorm.DB {
+func New(dbName string) *gorm.DB {
 
 	// delete database file if already exists
 	_, statErr := os.Stat(dbName)
