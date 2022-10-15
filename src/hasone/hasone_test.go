@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"gorm.io/gorm"
-	database "sample-go-with-gorm.com/src/db"
+	database "sample-go-with-gorm.com/db"
 )
 
 type User struct {

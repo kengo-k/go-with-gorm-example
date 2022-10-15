@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"sample-go-with-gorm.com/src/db"
+	"sample-go-with-gorm.com/db"
 )
 
 func TestSelectAllItems(t *testing.T) {

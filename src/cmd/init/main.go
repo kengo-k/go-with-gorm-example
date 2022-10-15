@@ -5,7 +5,7 @@ import (
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"sample-go-with-gorm.com/src/model"
+	"sample-go-with-gorm.com/model"
 )
 
 // initial database, migrate and insert test data

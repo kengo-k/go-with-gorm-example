@@ -3,7 +3,7 @@ package main
 import (
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"sample-go-with-gorm.com/src/service"
+	"sample-go-with-gorm.com/service"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package service
 import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-	"sample-go-with-gorm.com/src/model"
+	"sample-go-with-gorm.com/model"
 )
 
 type Service struct{}
