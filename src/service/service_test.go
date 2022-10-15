@@ -12,7 +12,7 @@ func TestSelectAllItems(t *testing.T) {
 	mockDB, mock := db.NewMockDB()
 
 	mock.ExpectQuery(regexp.QuoteMeta(
-		`SELECT * FROM "items" WHERE "items"."deleted_at" IS NULL`)).
+		`SELECT * FROM "items"`)).
 		WillReturnRows(sqlmock.NewRows([]string{}))
 
 	service := &Service{}
@@ -27,7 +27,7 @@ func TestSelectAllOrders(t *testing.T) {
 	mockDB, mock := db.NewMockDB()
 
 	mock.ExpectQuery(regexp.QuoteMeta(
-		`SELECT * FROM "orders" WHERE "orders"."deleted_at" IS NULL`)).
+		`SELECT * FROM "orders"`)).
 		WillReturnRows(sqlmock.NewRows([]string{}))
 
 	service := &Service{}

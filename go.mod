@@ -3,7 +3,13 @@ module sample-go-with-gorm.com
 go 1.19
 
 require (
-	github.com/DATA-DOG/go-sqlmock v1.5.0 // indirect
+	github.com/DATA-DOG/go-sqlmock v1.5.0
+	gorm.io/driver/postgres v1.4.4
+	gorm.io/driver/sqlite v1.4.2
+	gorm.io/gorm v1.24.0
+)
+
+require (
 	github.com/jackc/chunkreader/v2 v2.0.1 // indirect
 	github.com/jackc/pgconn v1.13.0 // indirect
 	github.com/jackc/pgio v1.0.0 // indirect
@@ -17,7 +23,4 @@ require (
 	github.com/mattn/go-sqlite3 v1.14.15 // indirect
 	golang.org/x/crypto v0.0.0-20220722155217-630584e8d5aa // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gorm.io/driver/postgres v1.4.4 // indirect
-	gorm.io/driver/sqlite v1.4.2 // indirect
-	gorm.io/gorm v1.24.0 // indirect
 )
